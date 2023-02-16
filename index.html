@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2LL-Dev</title>
+</head>
+<nav>
+    <div id="example-wrapper">
+    <div id="theme-picker-section" class="example-section">      
+      <input type="radio" name="theme" value="white" checked="true">
+      <input type="radio" name="theme" value="red">
+      <input type="radio" name="theme" value="orange">
+      <input type="radio" name="theme" value="yellow">
+      <input type="radio" name="theme" value="green">
+      <input type="radio" name="theme" value="blue">
+      <input type="radio" name="theme" value="indigo">
+      <input type="radio" name="theme" value="violet">
+    </div>
+    </div>
+<h1 data-value="2LL-Dev">2LL-Dev</h1>
+</nav>
+
+
+<h1 id="Games">My Projects</h1>
+<div id="cards">
+    <div class="card">
+      <div class="card-content" onclick="window.open('https://2ll-dev.itch.io/bad')">
+        <h1 class="Pt">Deteal</h1>
+        <h1 class="type">Bad Game</h1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content" onclick="window.open('https://Sparadox.cf')">
+        <h1 class="Pt">Sparadox.cf</h1>
+        <h1 class="type">WebSite</h1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content" onclick="window.open('https://dsc.gg/sparadox')">
+        <h1 class="Pt">SparaAI</h1>
+        <h1 class="type">Ai Discord Bot</h1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content" onclick="window.open('https://dsc.gg/sparadox')">
+        <h1 class="Pt">SparaManager</h1>
+        <h1 class="type">economy discord bot</h1>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <p>c</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <p>c</p>
+      </div>
+    </div>
+  </div>
+
+    
+<body>
+    
+
+
+    <div id="bubble-wrapper">
+  
+    </div>
+    
+
+
+    <script>
+
+
+    const root = document.querySelector(":root"),
+    inputs = document.querySelectorAll("input[name='theme']");
+
+    const theme = localStorage.getItem("theme-color");
+
+    const updateRoot = value => root.style.setProperty("--theme-color", `var(--${value})`);
+
+    for(const input of inputs) {
+    if(theme && input.value === theme) {
+        input.checked = true;
+    
+    updateRoot(theme);
+  }
+  
+  input.onchange = e => {
+    updateRoot(e.target.value);
+    
+    localStorage.setItem("theme-color", e.target.value);
+  }
+}
+
+
+
+        const letters = "ABSDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+        const wrapper = document.getElementById("bubble-wrapper");
+
+        const projecttext = document.getElementById("Games")
+
+        const animateBubble = x => {  
+        const bubble = document.createElement("div");
+        
+        bubble.className = "bubble";
+        bubble.style.left = `${x}px`;
+        
+        wrapper.appendChild(bubble);
+        
+        setTimeout(() => wrapper.removeChild(bubble), 2000);
+        }
+
+        window.onmousemove = e => animateBubble(e.clientX);
+
+        document.querySelector("h1").onmouseover = event =>{
+        let interation = 0;
+        
+        const interval = setInterval(() => {
+        event.target.innerText = event.target.innerText.split("").map((letter, index) => {
+                if (index < interation)
+                {
+                    return event.target.dataset.value[index];
+                }
+            return letters[Math.floor(Math.random() * 26)];
+        }).join("")
+        
+        interation += 1 / 10;
+        if (interation >= 7){
+            clearInterval(interval);
+        }
+        
+        
+        },30);
+        
+        }
+    </script>
+</body>
+</html>
