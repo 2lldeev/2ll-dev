@@ -14,7 +14,16 @@
     padding-top: 1rem;
     padding-left: 1rem;
     margin: 0rem;
-    width: 12rem
+    width: 12rem;
+    z-index: 4;
+  }
+
+.ll {
+  z-index: 4;
+}
+
+  nav {
+    z-index: 4;
   }
 
 .Pt {
@@ -36,6 +45,46 @@
     padding-left: 8rem;
     padding-bottom: 2rem;
 }
+
+
+  
+  @keyframes rotate {
+    from {
+      rotate: 0deg;
+    }
+    
+    50% {
+      scale: 1 1.5;
+    }
+    
+    to {
+      rotate: 360deg;
+    }
+  }
+  
+  #blob {
+    background-color: white;
+    height: 30rem;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -10% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(var(--theme-color)));
+    animation: rotate 4s ease-in-out infinite;
+    opacity: 0.8;
+  }
+  
+  #blur {
+    height: 200%;
+    width:100%;
+    position: absolute;
+    z-index: 2;
+    backdrop-filter: blur(15vmax);
+  }
+  
+
   
   @keyframes wave {
     from, to {
@@ -64,11 +113,12 @@
     width: max(100px, 10vw);
     
     background-color: rgb(var(--theme-color));  
-    border-radius: 100%;
+    border-radius: 9%;
     
     position: absolute;
     left: 50%;
     top: 100%;
+    z-index: 1;
     
     animation: wave 2s ease-in-out infinite;
   }
@@ -109,7 +159,7 @@
     padding-left: 50rem;
     width: min(400px, calc(100% - 2rem));
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     padding-right: 0rem;
   }
   #theme-picker-section {  
@@ -222,11 +272,11 @@
         place-self: center;
         position: relative;
         width: calc(100% - 2em);
-        z-index: 2;
+        z-index: 3;
       }
       
       .card {
-        background-color: var(--card-color);
+        background-color: rgb(var(--card-colo));
         border-radius: 0.75em;
         cursor: pointer;
         height: 240px;
@@ -254,7 +304,8 @@
       }
       
       .card-content {
-        background-color: var(--card-color);
+        background: linear-gradient(45deg, rgb(25, 25, 25), rgb(54, 54, 54));
+        opacity: 90%;
         border-radius: inherit;
         display: grid;
         inset: 1px;
