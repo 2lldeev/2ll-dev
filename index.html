@@ -20,7 +20,7 @@
       <input type="radio" name="theme" value="violet">
     </div>
     </div>
-<h1 data-value="2LL-Dev">2LL-Dev</h1>
+<h1 class="ll">2LL-Dev</h1>
 </nav>
 
 
@@ -61,6 +61,8 @@
       </div>
     </div>
   </div>
+  <div id="blob"></div>
+  <div id="blur"></div>
 
     
 <body>
@@ -74,6 +76,8 @@
 
 
     <script>
+
+
 
 
     const root = document.querySelector(":root"),
@@ -97,49 +101,6 @@
   }
 }
 
-
-
-        const letters = "ABSDEFGHIJKLMNOPQRSTUVWXYZ";
-
-
-        const wrapper = document.getElementById("bubble-wrapper");
-
-        const projecttext = document.getElementById("Games")
-
-        const animateBubble = x => {  
-        const bubble = document.createElement("div");
-        
-        bubble.className = "bubble";
-        bubble.style.left = `${x}px`;
-        
-        wrapper.appendChild(bubble);
-        
-        setTimeout(() => wrapper.removeChild(bubble), 2000);
-        }
-
-        window.onmousemove = e => animateBubble(e.clientX);
-
-        document.querySelector("h1").onmouseover = event =>{
-        let interation = 0;
-        
-        const interval = setInterval(() => {
-        event.target.innerText = event.target.innerText.split("").map((letter, index) => {
-                if (index < interation)
-                {
-                    return event.target.dataset.value[index];
-                }
-            return letters[Math.floor(Math.random() * 26)];
-        }).join("")
-        
-        interation += 1 / 10;
-        if (interation >= 7){
-            clearInterval(interval);
-        }
-        
-        
-        },30);
-        
-        }
     </script>
 </body>
 </html>
